@@ -4,7 +4,7 @@ WorkoutFit is a workout tracking application that aims to make it simple to trac
 
 ### TODO
 
-#### As an exerciser, I want to...
+##### _As an exerciser, I want to..._
 
 - [x] See my workout routines
 - [ ] Create new workout routines
