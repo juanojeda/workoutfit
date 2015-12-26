@@ -1,0 +1,19 @@
+{
+  "name": "workoutfit",
+  "version": "0.0.0",
+  "authors": [
+    "Juan Ojeda <juan@juanojeda.com>"
+  ],
+  "license": "n/a",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "private/components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.6",
+    "lodash": "~3.10.1"
+  }
+}
