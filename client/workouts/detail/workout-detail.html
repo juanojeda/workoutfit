@@ -1,0 +1,25 @@
+<h1>{{workoutDetail.workout.name}}</h1>
+
+
+<h3>Exercises</h3>
+
+<div ng-repeat="superset in workoutDetail.workout.exercises" layout layout-padding>
+    <md-card class="superset" ng-repeat="exercise in superset" flex>
+        <h4>{{exercise.name}}</h4>
+        <md-chips>
+            <md-chip class="md-chip">
+                <strong>sets:</strong> {{exercise.sets}}
+            </md-chip>
+            <md-chip class="md-chip">
+                <strong>reps:</strong>
+                <span ng-if="!exercise.repMin">Max {{exercise.repMax}}</span>
+                <span ng-if="!exercise.repMax">At least {{exercise.repMin}}</span>
+                <span ng-if="exercise.repMin && exercise.repMax">{{exercise.repMin}} - {{exercise.repMax}}</span>
+            </md-chip>
+            <md-chip class="md-chip md-accent"><strong>Personal best:</strong> {{exercise.maxWeight}}</md-chip>
+        </md-chips>
+    </md-card>
+</div>
+
+<h3>Workout History</h3>
+<div></div>

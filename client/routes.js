@@ -7,7 +7,11 @@ Workoutfit
         .state('workouts', {
             url: '/workouts',
             template: '<workout-list></workout-list>'
-        });
+        })
+        .state('workoutDetail', {
+            url: '/workouts/:workoutId',
+            template: '<workout-detail></workout-detail>'
+        })
 
     $urlRouterProvider.otherwise('/workouts');
 });

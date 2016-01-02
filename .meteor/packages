@@ -18,5 +18,5 @@ autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 angular
 angular:angular-material
-less
 angularui:angular-ui-router
+stevezhu:sass

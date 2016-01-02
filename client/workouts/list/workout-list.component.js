@@ -2,7 +2,7 @@ Workoutfit
     .directive('workoutList', function(){
         return {
             restrict: 'E',
-            templateUrl: 'client/workouts/workout-list/workout-list.html',
+            templateUrl: 'client/workouts/list/workout-list.html',
             controllerAs: 'workoutList',
             controller: function ($scope, $reactive){
 

@@ -1,0 +1,5 @@
+<h1>Workouts</h1>
+<ul>
+    <li ng-repeat="workout in workoutList.workouts">
+        <a ui-sref="workoutDetail({workoutId: workout._id})">{{workout.name}}</a></li>
+</ul>

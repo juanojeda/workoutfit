@@ -1,4 +1,4 @@
-var exercisesFixture = [
+exercisesFixture = [
     {
         name: 'Standing DB Press',
         maxWeight: 0

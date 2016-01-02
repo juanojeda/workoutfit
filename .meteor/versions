@@ -42,7 +42,6 @@ insecure@1.0.4
 jquery@1.11.4
 lai:collection-extensions@0.1.4
 launch-screen@1.0.4
-less@2.5.1
 livedata@1.0.15
 logging@1.0.8
 meteor@1.1.10
@@ -68,6 +67,7 @@ session@1.1.1
 spacebars@1.0.7
 spacebars-compiler@1.0.7
 standard-minifiers@1.0.2
+stevezhu:sass@2.0.0
 templating-tools@1.0.0
 tracker@1.0.9
 ui@1.0.8
