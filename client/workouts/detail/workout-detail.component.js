@@ -9,21 +9,25 @@ Workoutfit
 
                 this.helpers({
                     workout: () => {
-                        return Workouts.findOne({ _id: $stateParams.workoutId });
+                        var workout = Workouts.findOne({ _id: $stateParams.workoutId });
+
+                        angular.forEach(workout.exercises, function(superset){
+                            angular.forEach(superset, function(exercise){
+                                var dbExercise = Exercises.findOne({ _id: exercise.exerciseId });
+
+                                exercise.name = dbExercise.name;
+                                exercise.maxWeight = dbExercise.maxWeight;
+
+                                exercise.repMin = exercise.reps[0] === 0 ? false : exercise.reps[0];
+                                exercise.repMax = exercise.reps[1] === 0 ? false : exercise.reps[1];
+                            });
+                        });
+
+                        return workout;
                     },
                 });
 
-                angular.forEach(this.workout.exercises, function(superset){
-                    angular.forEach(superset, function(exercise){
-                        var dbExercise = Exercises.findOne({ _id: exercise.exerciseId });
 
-                        exercise.name = dbExercise.name;
-                        exercise.maxWeight = dbExercise.maxWeight;
-
-                        exercise.repMin = exercise.reps[0] === 0 ? false : exercise.reps[0];
-                        exercise.repMax = exercise.reps[1] === 0 ? false : exercise.reps[1];
-                    });
-                });
 
             }
         }

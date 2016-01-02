@@ -8,6 +8,12 @@ angular.module('workoutfit',
 // global variable for workoutfit angular module
 Workoutfit = angular.module('workoutfit');
 
+Workoutfit.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue')
+    .accentPalette('teal');
+});
+
 function onReady() {
     angular.bootstrap(document, ['workoutfit'], {
         strictDi: true
