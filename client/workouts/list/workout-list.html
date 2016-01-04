@@ -1,5 +1,10 @@
-<h1>Workouts</h1>
-<ul>
-    <li ng-repeat="workout in workoutList.workouts">
-        <a ui-sref="workoutDetail({workoutId: workout._id})">{{workout.name}}</a></li>
-</ul>
+<h2 class="md-headline" layout-padding>Start a Workout</h2>
+
+<md-content layout-padding>
+
+    <md-list>
+        <md-list-item ng-repeat="workout in workoutList.workouts" layout  layout-align="center start">
+            <md-button ui-sref="workoutDetail({workoutId: workout._id})" class="md-accent md-hue-2 md-raised" flex="50">{{workout.name}}</md-button>
+        </md-list-item>
+    </md-list>
+</md-content>

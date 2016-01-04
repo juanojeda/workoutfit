@@ -1,10 +1,23 @@
 md-chips {
-    md-chip,
-    .md-chip {
+    md-chip {
         background: $clr-ui-grey;
+        &.md-accent,
+        &.md-primary {
+            color: #fff;
+        }
         &.md-accent {
             background: $clr-accent;
-            color: white;
+        }
+        &.md-primary {
+            background: $clr-primary;
+        }
+        md-icon {
+            color: inherit;
+            vertical-align: text-bottom;
+            height: 20px;
+            position: relative;
+            top: 1px;
+            margin-left: -6px;
         }
     }
     .md-chips {

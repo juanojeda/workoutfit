@@ -1,35 +1,36 @@
-<md-toolbar class="md-primary md-hue-2">
-    <div class="md-toolbar-tools">
-        <h1>{{workoutDetail.workout.name}}</h1>
-    </div>
-</md-toolbar>
-<md-toolbar>
-    <div class="md-toolbar-tools">
-        <h3>Exercises</h3>
-    </div>
+<md-toolbar layout-padding layout-align="center start">
+        <span class="md-title">{{workoutDetail.workout.name}}</span>
 </md-toolbar>
 
-<md-content ng-repeat="superset in workoutDetail.workout.exercises" layout layout-xs-padding>
-    <md-card class="superset" ng-repeat="exercise in superset" flex>
-        <md-card-title class="md-secondary">
-            <md-card-title-text>
-                <h4>{{exercise.name}}</h4>
-            </md-card-title-text>
-        </md-card-title>
-        <md-chips>
-            <md-chip class="md-chip">
-                <strong>sets:</strong> {{exercise.sets}}
-            </md-chip>
-            <md-chip class="md-chip">
-                <strong>reps:</strong>
-                <span ng-if="!exercise.repMin">Max {{exercise.repMax}}</span>
-                <span ng-if="!exercise.repMax">At least {{exercise.repMin}}</span>
-                <span ng-if="exercise.repMin && exercise.repMax">{{exercise.repMin}} - {{exercise.repMax}}</span>
-            </md-chip>
-            <md-chip class="md-chip md-accent"><strong>PB:</strong> {{exercise.maxWeight}}</md-chip>
-        </md-chips>
-    </md-card>
-</md-content>
+<h3 class="md-headline" layout-padding>Exercises</h3>
 
-<h3>Workout History</h3>
-<div></div>
+<md-card ng-repeat="superset in workoutDetail.workout.exercises">
+    <div class="superset" ng-repeat="exercise in superset">
+        <md-content layout-padding>
+            <h4 class="md-subheading">{{exercise.name}}</h4>
+            <md-chips>
+                <md-chip>
+                    <strong>sets:</strong> {{exercise.sets}}
+                </md-chip>
+                <md-chip>
+                    <strong>reps:</strong>
+                    <span ng-if="!exercise.repMin">Max {{exercise.repMax}}</span>
+                    <span ng-if="!exercise.repMax">At least {{exercise.repMin}}</span>
+                    <span ng-if="exercise.repMin && exercise.repMax">{{exercise.repMin}} - {{exercise.repMax}}</span>
+                </md-chip>
+                <md-chip ng-class="{'md-accent': exercise.maxWeight, 'md-primary': !exercise.maxWeight}">
+                    <span ng-if="exercise.maxWeight">
+                        <md-icon md-svg-icon="av:ic_new_releases_24px">PB:</md-icon> {{exercise.maxWeight}}kg
+                    </span>
+                    <span ng-if="!exercise.maxWeight">
+                        NEW
+                    </span>
+                </md-chip>
+            </md-chips>
+        </md-content>
+        <md-divider ng-if="!$last"></md-divider>
+    </div>
+</md-card>
+
+
+<h3 class="md-headline" layout-padding>Workout History</h3>

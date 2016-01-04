@@ -8,10 +8,15 @@ angular.module('workoutfit',
 // global variable for workoutfit angular module
 Workoutfit = angular.module('workoutfit');
 
-Workoutfit.config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
-    .primaryPalette('blue')
-    .accentPalette('teal');
+Workoutfit.config(function($mdThemingProvider, $mdIconProvider) {
+  $mdThemingProvider
+    .theme('default')
+        .primaryPalette('blue')
+        .accentPalette('teal');
+
+    $mdIconProvider
+        .iconSet('action', '/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-action.svg')
+        .iconSet('av', '/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-av.svg')
 });
 
 function onReady() {
