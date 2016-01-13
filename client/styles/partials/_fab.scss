@@ -1,0 +1,19 @@
+md-fab-toolbar {
+    position: relative;
+    .md-fab-title {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        color: $clr-primary-600;
+        transition: 200ms ease all;
+        &.hidden {
+            opacity: 0;
+        }
+    }
+    md-toolbar {
+        .md-toolbar-tools {
+            padding: 0;
+        }
+    }
+}

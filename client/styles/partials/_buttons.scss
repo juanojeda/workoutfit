@@ -1,0 +1,31 @@
+md-button,
+.md-button {
+    margin: 0;
+}
+md-button,
+.md-button {
+    &, &.md-fab {
+        &.md-inverse {
+            background: $clr-ui-grey;
+            md-icon {
+                color: currentColor !important;
+            }
+            &:hover,
+            &:active {
+                color: #fff !important;
+            }
+            &.md-primary {
+                color: $clr-primary-500;
+            }
+            &.md-secondary {
+                color: $clr-secondary-500;
+            }
+            &.md-accent {
+                color: $clr-accent-500;
+            }
+            &.md-warn {
+                color: $clr-warn-500;
+            }
+        }
+    }
+}

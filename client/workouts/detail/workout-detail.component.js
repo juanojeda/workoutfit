@@ -25,6 +25,11 @@ Workoutfit
 
                         return workout;
                     },
+                    // fab toolbar
+                    fabActions: {
+                        isOpen: false,
+                        count: 0
+                    },
                 });
 
 

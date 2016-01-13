@@ -1,8 +1,21 @@
-<md-toolbar layout-padding layout-align="center start">
-        <span class="md-title">{{workoutDetail.workout.name}}</span>
-</md-toolbar>
-
-<h3 class="md-headline" layout-padding>Exercises</h3>
+<md-fab-toolbar md-open="fabActions.isOpen" count="fabActions.count" md-direction="left">
+    <h2 class="md-fab-title" layout-padding ng-class="{hidden: fabActions.isOpen}">{{workoutDetail.workout.name}}</h2>
+    <md-fab-trigger layout-padding>
+        <md-button aria-label="menu" class="md-fab md-primary md-hue-2">
+            <md-icon md-svg-icon="content:ic_add_24px"></md-icon>
+        </md-button>
+    </md-fab-trigger>
+    <md-toolbar>
+        <md-fab-actions class="md-toolbar-tools">
+            <md-button aria-label="start" class="md-fab md-mini md-icon-button md-accent md-inverse">
+                <md-icon md-svg-icon="av:ic_play_arrow_24px"></md-icon>
+            </md-button>
+            <md-button aria-label="add-past" class="md-fab md-mini md-icon-button md-accent md-inverse">
+                <md-icon md-svg-icon="action:ic_history_24px"></md-icon>
+            </md-button>
+        </md-fab-actions>
+    </md-toolbar>
+</md-fab-toolbar>
 
 <md-card ng-repeat="superset in workoutDetail.workout.exercises">
     <div class="superset" ng-repeat="exercise in superset">
