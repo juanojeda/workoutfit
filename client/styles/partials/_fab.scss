@@ -7,8 +7,10 @@ md-fab-toolbar {
         left: 0;
         color: $clr-primary-600;
         transition: 200ms ease all;
+        transition-delay: 500ms;
         &.hidden {
             opacity: 0;
+            transition-delay: 0ms;
         }
     }
     md-toolbar {
