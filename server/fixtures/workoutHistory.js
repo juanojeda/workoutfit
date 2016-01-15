@@ -1,13 +1,13 @@
 workoutHistoryFixture = [
-        {
-            workoutId: '',
-            date: '',
-            exercisePerformance: [
-                {
-                    exerciseId: '',
-                    reps: [],
-                    weight: []
-                }
-            ]
-        }
+    {
+        workoutId: '',
+        date: '',
+        exercisePerformance: [
+            {
+                exerciseId: '',
+                reps: [],
+                weight: []
+            }
+        ]
+    }
 ];

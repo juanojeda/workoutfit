@@ -1,10 +1,17 @@
-<h2 class="md-headline" layout-padding>Start a Workout</h2>
+<md-fab-toolbar layout-padding md-direction="left">
+    <h2 class="md-fab-title" ng-class="{hidden: fabActions.isOpen}">Start a Workout</h2>
+</md-fab-toolbar>
 
 <md-content layout-padding>
-
     <md-list  layout-align="center start" layout="row" layout-wrap>
         <md-list-item ng-repeat="workout in workoutList.workouts" flex-sm="90" flex-md="40" layout layout-padding>
-            <md-button ui-sref="workoutDetail({workoutId: workout._id})" class="md-accent md-hue-2 md-raised" flex="100">{{workout.name}}</md-button>
+            <md-button ui-sref="workoutDetail({workoutId: workout._id})" class="md-primary md-hue-4 md-raised" flex="100">{{workout.name}}</md-button>
         </md-list-item>
     </md-list>
 </md-content>
+
+<div layout="column" layout-align="center center">
+    <md-button ui-sref="createWorkout" aria-label="menu" class="md-fab md-accent md-hue-2">
+        <md-icon md-svg-icon="content:ic_add_24px"></md-icon>
+    </md-button>
+</div>

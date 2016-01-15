@@ -13,7 +13,6 @@ Workoutfit
                         return Workouts.find({});
                     }
                 });
-
             }
         }
     });

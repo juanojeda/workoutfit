@@ -31,9 +31,6 @@ Workoutfit
                         count: 0
                     },
                 });
-
-
-
             }
         }
     });
