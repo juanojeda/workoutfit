@@ -1,5 +1,11 @@
-md-fab-toolbar {
+md-fab-toolbar,
+.md-fab-toolbar {
     position: relative;
+
+    .md-fab-toolbar-wrapper {
+        position: relative;
+    }
+
     .md-fab-title {
         position: absolute;
         top: 0;
@@ -8,11 +14,13 @@ md-fab-toolbar {
         color: $clr-primary-600;
         transition: 200ms ease all;
         transition-delay: 500ms;
+
         &.hidden {
             opacity: 0;
             transition-delay: 0ms;
         }
     }
+
     md-toolbar {
         .md-toolbar-tools {
             padding: 0;

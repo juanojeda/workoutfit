@@ -1,6 +1,12 @@
 md-button,
 .md-button {
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    md-list-item &,
+    .md-list-item &,
+    &.md-fab {
+        margin: 0;
+    }
 }
 md-button,
 .md-button {
