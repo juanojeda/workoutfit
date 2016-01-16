@@ -11,9 +11,13 @@ Workoutfit
                     $state.transitionTo('workouts');
                 };
 
+                this.canAddExercise = function(){
+                    return !!this.tempExercise.exerciseId;
+                };
+
                 this.canSubmit = function(){
                     if (_.isEmpty(this.workout.exercises)){
-                        return !!this.tempExercise.exerciseId;
+                        return this.canAddExercise();
                     } else {
                         return true;
                     };

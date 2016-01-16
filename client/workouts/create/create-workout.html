@@ -45,7 +45,7 @@
                 <label for="exercise_{{$index}}_repsMax">Reps (max)</label>
                 <input type="tel" name="exercise_{{$index}}_repsMax" ng-model="exercise.repsMax" min="0" step="1" />
             </md-input-container>
-            <md-button flex="100" class="md-secondary" ng-click="addExercise()">Add another exercise</md-button>
+            <md-button flex="100" class="md-secondary" ng-click="addExercise()" ng-disabled="!createWorkout.canAddExercise()">Add another exercise</md-button>
         </div>
     </div>
 
