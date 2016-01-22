@@ -49,7 +49,7 @@ Workoutfit
                     var repsMin;
                     var repsMax;
 
-                    if (!!this.tempExercise){
+                    if (!!this.tempExercise && !!this.tempExercise.exerciseId){
                         exercise = this.tempExercise;
                         repsMin = !!exercise.repsMin ? parseInt(exercise.repsMin, 10) : 0;
                         repsMax = !!exercise.repsMax ? parseInt(exercise.repsMax, 10) : 0;
