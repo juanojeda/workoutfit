@@ -68,6 +68,8 @@ Workoutfit
 
                 this.saveWorkout = function() {
                     this.addExercise();
+                    Workouts.insert(this.workout);
+                    this.cancelCreate();
                 };
 
                 this.lastSetExerciseNames = function(){
