@@ -7,6 +7,26 @@ Workoutfit
             controller: function($scope, $stateParams, $reactive, $state){
                 $reactive(this).attach($scope);
 
+                var createWorkout = this;
+
+                this.helpers({
+                    tempExercise: () => {
+                        return {}
+                    },
+                    workout: () => {
+                        return {
+                            name: '',
+                            exercises: []
+                        }
+                    },
+                    workoutsList: () => {
+                        return Workouts.find({});
+                    },
+                    exerciseList: () => {
+                        return Exercises.find({});
+                    }
+                });
+
                 this.cancelCreate = function(){
                     resetTempExercise();
                     $state.transitionTo('workouts');
@@ -50,34 +70,67 @@ Workoutfit
                     this.addExercise();
                 };
 
-                function getExerciseName(exerciseId){
-                    var exercise = _.findWhere(this.exerciseList, {_id: exerciseId});
+                this.lastSetExerciseNames = function(){
 
-                    if (!!exercise){
-                        return exercise.name;
+                };
+
+                this.getExerciseNames = function(set){
+
+                    var ids = getExercisePropFromSet(set, 'exerciseId');
+                    var dbExercises = createWorkout.exerciseList;
+                    var exerciseNamesList = [];
+                    var exercise;
+
+                    _.each(ids, function(id){
+
+                        exercise = _.findWhere(dbExercises, {_id: id});
+
+                        if (!!exercise){
+                            exerciseNamesList.push(exercise.name);
+                        } else {
+                            console.warn('exercise' + id + 'not found');
+                        }
+                    });
+
+                    if (_.isEmpty(exerciseNamesList)){
+                        console.warn('no exercises found');
+                        return '';
+                    }
+
+                    return exerciseNamesList.join(', ');
+
+                };
+
+
+                function getExercisePropFromSet(set, prop){
+                    console.log('from getExercisePropFromSet: ', set, prop);
+                    if (_.isArray(set)){
+                        return _.pluck(set, prop);
                     } else {
-                        console.log('exercise not found');
+                        console.warn('set is not an array');
                         return '';
                     }
                 };
 
                 function resetTempExercise(){
-                    var ex = this.tempExercise;
+                    var ex = createWorkout.tempExercise;
 
                     ex.exerciseId = '';
                     ex.sets = '';
                     ex.repsMin = '';
                     ex.repsMax = '';
                     ex.defaultWeight = '';
-                }
+                };
 
                 function processExerciseToWorkout(){
+                    var workoutExercises = createWorkout.workout.exercises;
+                    var addToLastSuperset = createWorkout.tempExercise.isSuperset;
                     var exerciseModel;
                     var repsMin;
                     var repsMax;
 
-                    if (!!this.tempExercise && !!this.tempExercise.exerciseId){
-                        exercise = this.tempExercise;
+                    if (!!createWorkout.tempExercise && !!createWorkout.tempExercise.exerciseId){
+                        exercise = createWorkout.tempExercise;
                         repsMin = !!exercise.repsMin ? parseInt(exercise.repsMin, 10) : 0;
                         repsMax = !!exercise.repsMax ? parseInt(exercise.repsMax, 10) : 0;
                         exerciseModel = {
@@ -89,28 +142,14 @@ Workoutfit
                     }
 
                     if (!!exerciseModel){
-                        this.workout.exercises.push(exerciseModel);
+                        if (addToLastSuperset){
+                            workoutExercises[workoutExercises.length-1].push(exerciseModel);
+                        } else {
+                            workoutExercises.push([exerciseModel]);
+                        }
                         resetTempExercise();
                     }
                 };
-
-                this.helpers({
-                    tempExercise: () => {
-                        return {}
-                    },
-                    workout: () => {
-                        return {
-                            name: '',
-                            exercises: []
-                        }
-                    },
-                    workoutsList: () => {
-                        return Workouts.find({});
-                    },
-                    exerciseList: () => {
-                        return Exercises.find({});
-                    }
-                });
             }
         }
     });

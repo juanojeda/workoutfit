@@ -22,7 +22,7 @@
 
     <h3 class="md-title">Add an Exercise</h3>
 
-    <div ng-init="exercise = createWorkout.tempExercise">
+    <div ng-init="exercise = createWorkout.tempExercise; workout = createWorkout.workout; exerciseList = createWorkout.workout.exercises">
         <md-input-container>
             <label for="exercise_{{$index}}">Exercise</label>
             <md-select name="exercise_{{$index}}" ng-model="exercise.exerciseId">
@@ -48,14 +48,19 @@
                 <label for="exercise_{{$index}}_repsMax">Reps (max)</label>
                 <input type="tel" name="exercise_{{$index}}_repsMax" ng-model="exercise.repsMax" min="0" step="1" />
             </md-input-container>
+            <md-input-container ng-if="exerciseList.length > 0">
+                <md-checkbox ng-model="exercise.isSuperset" aria-label="Add to superset">
+                    Superset with {{createWorkout.getExerciseNames(exerciseList[exerciseList.length-1])}}
+                </md-checkbox>
+            </md-input-container>
             <md-button flex="100" class="md-secondary" ng-click="createWorkout.addExercise()" ng-disabled="!createWorkout.canAddExercise()">Add another exercise</md-button>
         </div>
     </div>
 
     <md-list ng-if="createWorkout.workout.exercises.length">
         <h3 class="md-title">Exercises</h3>
-        <md-list-item ng-repeat="exercise in createWorkout.workout.exercises">
-            {{createWorkout.getExerciseName(exercise.exerciseId)}}
+        <md-list-item ng-repeat="set in createWorkout.workout.exercises">
+            {{createWorkout.getExerciseNames(set)}}
         </md-list-item>
     </md-list>
 
