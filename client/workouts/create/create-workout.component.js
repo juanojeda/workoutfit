@@ -105,7 +105,6 @@ Workoutfit
 
 
                 function getExercisePropFromSet(set, prop){
-                    console.log('from getExercisePropFromSet: ', set, prop);
                     if (_.isArray(set)){
                         return _.pluck(set, prop);
                     } else {
