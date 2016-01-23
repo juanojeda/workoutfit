@@ -15,6 +15,9 @@
     <md-input-container>
         <label>Workout Name</label>
         <input type="text" name="workoutName" ng-model="createWorkout.workout.name" />
+        <div ng-messages>
+            <div ng-show="!createWorkout.isWorkoutNameUnique()">Workout name must be unique</div>
+        </div>
     </md-input-container>
 
     <h3 class="md-title">Add an Exercise</h3>
@@ -57,7 +60,7 @@
     </md-list>
 
     <div layout="row">
-        <md-button flex="100" ng-disabled="!createWorkout.canSubmit()" ng-click="createWorkout.saveWorkout()" class="md-primary md-raised">Save workout</md-button>
+        <md-button flex="100" ng-disabled="!createWorkout.canSaveWorkout()" ng-click="createWorkout.saveWorkout()" class="md-primary md-raised">Save workout</md-button>
     </div>
 
 </md-content>

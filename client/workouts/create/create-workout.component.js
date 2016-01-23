@@ -8,22 +8,49 @@ Workoutfit
                 $reactive(this).attach($scope);
 
                 this.cancelCreate = function(){
+                    resetTempExercise();
                     $state.transitionTo('workouts');
+                };
+
+                this.isWorkoutNameUnique = function(){
+
+                    var newWorkoutName;
+                    var dbWorkoutName;
+                    var matches;
+
+                    if (this.workout.name){
+                        newWorkoutName = this.workout.name.toLowerCase();
+                        matches = _.filter(this.workoutsList, function(dbWorkout){
+                            return newWorkoutName === dbWorkout.name.toLowerCase();
+                        });
+                    }
+
+                    return _.isEmpty(matches);
                 };
 
                 this.canAddExercise = function(){
                     return !!this.tempExercise.exerciseId;
                 };
 
-                this.canSubmit = function(){
+                this.canSaveWorkout = function(){
+                    if (!this.workout.name){
+                        return false;
+                    }
                     if (_.isEmpty(this.workout.exercises)){
-                        return this.canAddExercise();
-                    } else {
-                        return true;
-                    };
+                        return this.canAddExercise(); //proxy for if the tempExercise is filled
+                    }
+                    return true;
                 };
 
-                this.getExerciseName = function(exerciseId){
+                this.addExercise = function(){
+                    processExerciseToWorkout();
+                };
+
+                this.saveWorkout = function() {
+                    this.addExercise();
+                };
+
+                function getExerciseName(exerciseId){
                     var exercise = _.findWhere(this.exerciseList, {_id: exerciseId});
 
                     if (!!exercise){
@@ -34,7 +61,7 @@ Workoutfit
                     }
                 };
 
-                this.resetTempExercise = function(){
+                function resetTempExercise(){
                     var ex = this.tempExercise;
 
                     ex.exerciseId = '';
@@ -42,9 +69,9 @@ Workoutfit
                     ex.repsMin = '';
                     ex.repsMax = '';
                     ex.defaultWeight = '';
-                };
+                }
 
-                this.processExerciseToWorkout = function(){
+                function processExerciseToWorkout(){
                     var exerciseModel;
                     var repsMin;
                     var repsMax;
@@ -63,16 +90,8 @@ Workoutfit
 
                     if (!!exerciseModel){
                         this.workout.exercises.push(exerciseModel);
-                        this.resetTempExercise();
+                        resetTempExercise();
                     }
-                };
-
-                this.addExercise = function(){
-                    this.processExerciseToWorkout();
-                };
-
-                this.saveWorkout = function() {
-                    this.addExercise();
                 };
 
                 this.helpers({
@@ -83,14 +102,10 @@ Workoutfit
                         return {
                             name: '',
                             exercises: []
-                            // {
-                            //  exerciseId: '',
-                            //  sets: #
-                            //  reps: [#, #] // min, max
-                            //  defaultWeight: # // based on
-                            //
-                            // }
                         }
+                    },
+                    workoutsList: () => {
+                        return Workouts.find({});
                     },
                     exerciseList: () => {
                         return Exercises.find({});
