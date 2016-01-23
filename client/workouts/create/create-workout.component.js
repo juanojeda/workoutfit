@@ -72,10 +72,6 @@ Workoutfit
                     this.cancelCreate();
                 };
 
-                this.lastSetExerciseNames = function(){
-
-                };
-
                 this.getExerciseNames = function(set){
 
                     var ids = getExercisePropFromSet(set, 'exerciseId');
