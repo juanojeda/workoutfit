@@ -74,6 +74,10 @@ Workoutfit
 
                 this.getExerciseNames = function(set){
 
+                    if (!_.isArray(set)){
+                        set = [set];
+                    }
+
                     var ids = getExercisePropFromSet(set, 'exerciseId');
                     var dbExercises = createWorkout.exerciseList;
                     var exerciseNamesList = [];
@@ -86,7 +90,7 @@ Workoutfit
                         if (!!exercise){
                             exerciseNamesList.push(exercise.name);
                         } else {
-                            console.warn('exercise' + id + 'not found');
+                            console.warn('exercise ' + id + ' not found');
                         }
                     });
 
