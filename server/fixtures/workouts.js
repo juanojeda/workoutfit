@@ -4,13 +4,13 @@ workoutsFixture = [
         exercises: [ // each array item is a superset
             [
                 { // Standing DB Press
-                    exerciseId: '5FxHBKWXnCiC4fkkT',
+                    exerciseId: Exercises.findOne({name: 'Standing Dumbbell Press'})['_id'],
                     sets: 3,
                     reps: [8, 10],
                     defaultWeight: 0
                 },
                 { // Rear Delt Fly
-                    exerciseId: 'K84D2mJXzLFoayxAs',
+                    exerciseId: Exercises.findOne({name: 'Rear Delt Fly'})['_id'],
                     sets: 3,
                     reps: [8, 10],
                     defaultWeight: 0
@@ -18,13 +18,13 @@ workoutsFixture = [
             ],
             [
                 { // Lat Raises
-                    exerciseId: '5oRMCKADP2kdTZ4E5',
+                    exerciseId: Exercises.findOne({name: 'Lateral Raises'})['_id'],
                     sets: 3,
                     reps: [8, 10],
                     defaultWeight: 0
                 },
                 { // Front Shoulder Raises
-                    exerciseId: 'nQD3kaZgACBtyxbaX',
+                    exerciseId: Exercises.findOne({name: 'Front Shoulder Raises'})['_id'],
                     sets: 3,
                     reps: [8, 10],
                     defaultWeight: 0
@@ -32,13 +32,13 @@ workoutsFixture = [
             ],
             [
                 { // High Pull
-                    exerciseId: 'AQyqnFDw8Nxv5QRoe',
+                    exerciseId: Exercises.findOne({name: 'Barbell High Pull'})['_id'],
                     sets: 3,
                     reps: [8, 10],
                     defaultWeight: 0
                 },
                 { // Pull Ups
-                    exerciseId: 'enjLYpcWoxyZyHxWZ',
+                    exerciseId: Exercises.findOne({name: 'Pull Ups'})['_id'],
                     sets: 3,
                     reps: [8,10],
                     defaultWeight: 0
@@ -46,7 +46,7 @@ workoutsFixture = [
             ],
             [
                 { // Barbell Behind Neck Press
-                    exerciseId: 'iRBZad8mdcNrRahJw',
+                    exerciseId: Exercises.findOne({name: 'Barbell Behind Neck Press'})['_id'],
                     sets: 3,
                     reps: [8, 10],
                     defaultWeight: 0
@@ -60,7 +60,7 @@ workoutsFixture = [
         exercises: [
             [
                 { // Bench Press
-                    exerciseId: 'B5joWAtfZLmT4AFgc',
+                    exerciseId: Exercises.findOne({name: 'Bench Press'})['_id'],
                     sets: 4,
                     reps: [6, 8],
                     defaultWeight: 0
@@ -68,13 +68,13 @@ workoutsFixture = [
             ],
             [
                 { // Barbell Bicep Curls
-                    exerciseId: 'MC5ynNKzCgwKSzym5',
+                    exerciseId: Exercises.findOne({name: 'Barbell Bicep Curls'})['_id'],
                     sets: 3,
                     reps: [8, 10],
                     defaultWeight: 0
                 },
                 { // Dumbbell Skull Crushers
-                    exerciseId: '6Apzy3aYPmTcBXbFQ',
+                    exerciseId: Exercises.findOne({name: 'Dumbbell Skull Crushers'})['_id'],
                     sets: 3,
                     reps: [8, 10],
                     defaultWeight: 0
@@ -82,13 +82,13 @@ workoutsFixture = [
             ],
             [
                 { // Dumbbell Hammer Curls
-                    exerciseId: 'vTb7HT3oaBc7ujxir',
+                    exerciseId: Exercises.findOne({name: 'Dumbbell Hammer Curls'})['_id'],
                     sets: 3,
                     reps: [8, 10],
                     defaultWeight: 0
                 },
                 { // Dumbbell Tricep Extensions
-                    exerciseId: 'dDbPTd6bao2urbTno',
+                    exerciseId: Exercises.findOne({name: 'Dumbbell Tricep Extensions'})['_id'],
                     sets: 3,
                     reps: [8, 10],
                     defaultWeight: 0
@@ -96,13 +96,13 @@ workoutsFixture = [
             ],
             [
                 { // Mixed Pushups
-                    exerciseId: 'zPyqjydmeXH92tmaf',
+                    exerciseId: Exercises.findOne({name: 'Pushups'})['_id'],
                     sets: 3,
                     reps: [0, 20],
                     defaultWeight: 0
                 },
                 { // Mixed Ab Crunches
-                    exerciseId: 'bjsDRFmXgPntdXGSc',
+                    exerciseId: Exercises.findOne({name: 'Abdominal Crunches'})['_id'],
                     sets: 3,
                     reps: [0, 20],
                     defaultWeight: 0
@@ -116,7 +116,7 @@ workoutsFixture = [
         exercises: [
             [
                 { // Heavy Squats
-                    exerciseId: 'KcMKRzmY6gtkWEjmq',
+                    exerciseId: Exercises.findOne({name: 'Barbell Squats'})['_id'],
                     sets: 4,
                     reps: [6, 8],
                     defaultWeight: 0
@@ -124,13 +124,13 @@ workoutsFixture = [
             ],
             [
                 { // Glute Raises
-                    exerciseId: 'Au4P3ZawWYm3LbN5n',
+                    exerciseId: Exercises.findOne({name: 'Hip Raises'})['_id'],
                     sets: 3,
                     reps: [12, 15],
                     defaultWeight: 0
                 },
                 { // Weighted Crunches
-                    exerciseId: 'aLKth28BXkL7kfCcz',
+                    exerciseId: Exercises.findOne({name: 'Abdominal Crunches'})['_id'],
                     sets: 3,
                     reps: [12, 15],
                     defaultWeight: 0
@@ -138,13 +138,13 @@ workoutsFixture = [
             ],
             [
                 { // Bulgarian Lunges
-                    exerciseId: 'H2vebw9Gfb5KD4tG6',
+                    exerciseId: Exercises.findOne({name: 'Barbell Bulgarian Lunges'})['_id'],
                     sets: 3,
                     reps: [12, 15],
                     defaultWeight: 0
                 },
                 { // Oblique Crunches
-                    exerciseId: 'GriTjCLiGbTzevoPP',
+                    exerciseId: Exercises.findOne({name: 'Oblique Crunches'})['_id'],
                     sets: 3,
                     reps: [12, 15],
                     defaultWeight: 0
@@ -152,7 +152,7 @@ workoutsFixture = [
             ],
             [
                 { // Weighted Surrenders
-                    exerciseId: 'wPNdCTR8kpW9HBkkc',
+                    exerciseId: Exercises.findOne({name: 'Surrenders'})['_id'],
                     sets: 3,
                     reps: [12, 15],
                     defaultWeight: 0

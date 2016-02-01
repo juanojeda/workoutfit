@@ -10,10 +10,24 @@ Workoutfit
                 this.helpers({
                     workout: () => {
                         var workout = Workouts.findOne({ _id: $stateParams.workoutId });
+                        var exercisesToFetch = [];
+                        var dbExercisesList = [];
+                        var dbExercise;
 
+                        // first loops to fetch _ids for database fetch
                         angular.forEach(workout.exercises, function(superset){
                             angular.forEach(superset, function(exercise){
-                                var dbExercise = Exercises.findOne({ _id: exercise.exerciseId });
+                                exercisesToFetch.push(exercise.exerciseId);
+                            });
+                        });
+
+                        // fetch all the exercises in one go
+                        dbExercisesList = Exercises.find({ _id: {$in: exercisesToFetch}}).fetch();
+
+                        // second loops to apply the data
+                        angular.forEach(workout.exercises, function(superset){
+                            angular.forEach(superset, function(exercise){
+                                dbExercise = _.findWhere(dbExercisesList, {_id: exercise.exerciseId});
 
                                 exercise.name = dbExercise.name;
                                 exercise.maxWeight = dbExercise.maxWeight;

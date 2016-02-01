@@ -1,6 +1,6 @@
 exercisesFixture = [
     {
-        name: 'Standing DB Press',
+        name: 'Standing Dumbbell Press',
         maxWeight: 0
     },
     {
@@ -8,7 +8,7 @@ exercisesFixture = [
         maxWeight: 0
     },
     {
-        name: 'Lat Raises',
+        name: 'Lateral Raises',
         maxWeight: 0
     },
     {
@@ -16,7 +16,7 @@ exercisesFixture = [
         maxWeight: 0
     },
     {
-        name: 'High Pull',
+        name: 'Barbell High Pull',
         maxWeight: 0
     },
     {
@@ -48,27 +48,23 @@ exercisesFixture = [
         maxWeight: 0
     },
     {
-        name: 'Mixed Pushups',
+        name: 'Pushups',
         maxWeight: 0
     },
     {
-        name: 'Mixed Ab Crunches',
+        name: 'Abdominal Crunches',
         maxWeight: 0
     },
     {
-        name: 'Heavy Squats',
+        name: 'Barbell Squats',
         maxWeight: 0
     },
     {
-        name: 'Glute Raises',
+        name: 'Hip Raises',
         maxWeight: 0
     },
     {
-        name: 'Weighted Crunches',
-        maxWeight: 0
-    },
-    {
-        name: 'Bulgarian Lunges',
+        name: 'Barbell Bulgarian Lunges',
         maxWeight: 0
     },
     {
@@ -76,7 +72,7 @@ exercisesFixture = [
         maxWeight: 0
     },
     {
-        name: 'Weighted Surrenders',
+        name: 'Surrenders',
         maxWeight: 0
     },
 ];
