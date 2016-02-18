@@ -1,9 +1,9 @@
 angular.module('workoutfit',
-[
-    'angular-meteor',
-    'ui.router',
-    'ngMaterial'
-]);
+    [
+        'angular-meteor',
+        'ui.router',
+        'ngMaterial'
+    ]);
 
 // global variable for workoutfit angular module
 Workoutfit = angular.module('workoutfit');
