@@ -1,0 +1,21 @@
+<md-fab-toolbar layout-padding md-direction="left">
+    <h2 class="md-fab-title">{{newSession.workout.name}}</h2>
+</md-fab-toolbar>
+
+<md-card class="superset superset--active">
+    <div class="exercise" ng-repeat="exercise in activeSuperset">
+        <md-content layout-padding>
+            <h4 class="md-subheading">{{exercise.name}}</h4>
+            <!-- input for weight -->
+            <!-- input for reps -->
+        </md-content>
+    </div>
+</md-card>
+
+<!-- button for next set -->
+
+<!-- if next set is next superset -->
+<md-card class="superset superset--next">
+
+</md-card>
+<!-- /if -->

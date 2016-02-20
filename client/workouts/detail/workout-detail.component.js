@@ -8,7 +8,7 @@ Workoutfit
                 $reactive(this).attach($scope);
 
                 this.helpers({
-                    workout: GetWorkoutService($stateParams.workoutId),
+                    workout: GetWorkoutFactory($stateParams.workoutId),
                     // fab toolbar
                     fabActions: {
                         isOpen: false,
