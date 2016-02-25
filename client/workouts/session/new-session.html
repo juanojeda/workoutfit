@@ -1,6 +1,12 @@
 <md-fab-toolbar layout-padding md-direction="left">
     <h2 class="md-fab-title">{{newSession.workout.name}}</h2>
 </md-fab-toolbar>
+<md-progress-linear md-mode="determinate" value="{{newSession.workoutProgress}}" ng-hide="newSession.workoutComplete"></md-progress-linear>
+
+<div class="notification notification--success" ng-show="newSession.workoutComplete">
+    <md-icon md-svg-icon="action:ic_done_24px"></md-icon>
+    Workout Complete!
+</div>
 
 <md-card class="superset superset--active">
     <div class="exercise" ng-repeat="exercise in activeSuperset">
@@ -13,6 +19,7 @@
 </md-card>
 
 <!-- button for next set -->
+<md-button ng-click="newSession.incrementWorkout()">next</md-button>
 
 <!-- if next set is next superset -->
 <md-card class="superset superset--next">
